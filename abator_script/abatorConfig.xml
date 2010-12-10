@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE abatorConfiguration PUBLIC "-//Apache Software Foundation//DTD Abator for iBATIS Configuration 1.0//EN" "http://ibatis.apache.org/dtd/abator-config_1_0.dtd" >
+<abatorConfiguration >
+  <abatorContext >
+    <jdbcConnection 
+    	driverClass="com.mysql.jdbc.Driver" 
+    	connectionURL="jdbc:mysql://127.0.0.1:3306/ssi?useUnicode=true&amp;characterEncoding=UTF-8" 
+    	userId="root" 
+    	password="111111" >
+    <classPathEntry location="D:\workspace\ncc\WebRoot\WEB-INF\lib\mysql-connector-java-5.1.8-bin.jar" />
+    </jdbcConnection>
+    <javaModelGenerator targetPackage="xj.ericli.ssi.db.ibatis.model" targetProject="ssi" />
+    <sqlMapGenerator targetPackage="xj.ericli.ssi.db.ibatis.model" targetProject="ssi" />
+    <daoGenerator targetPackage="xj.ericli.ssi.db.ibatis.dao" targetProject="ssi" type="GENERIC-SI" />
+    
+    
+   	<!-- 所有需要处理的的表列在这里 -->
+    <table schema="ibatis" tableName="dept" > </table>
+    <table schema="ibatis" tableName="staff" > </table>
+    <table schema="ibatis" tableName="t_user" > 
+		<!-- 对于插入操作，返回插入主键值，对于自增的主键使用	-->
+    	<generatedKey column="ID" sqlStatement="MySql" identity="true" />
+    </table>
+  </abatorContext>
+</abatorConfiguration>

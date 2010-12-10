@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+  <data-sources />
+  <form-beans />
+  <global-exceptions />
+  <global-forwards />
+  
+  <action-mappings>
+  	<action path="/userAction" scope="request" type="xj.ericli.ssi.action.TUserAction">
+  		<forward name="success" path="/view/userinfo.jsp"></forward>
+  	</action>
+  	<action path="/staffAction" scope="request" type="xj.ericli.ssi.action.StaffAction">
+  		<forward name="success" path="/view/staffinfo.jsp"></forward>
+  	</action>
+  	<action path="/userAndstaffAction" scope="request">
+  		<forward name="success" path="/view/userinfo.jsp"></forward>
+  	</action>
+  </action-mappings>
+  <!-- 这里的controller是使用spring来处理对struts action的请求委托,所有的struts action请求都会先进入DelegatingRequestProcessor--> 
+  <controller processorClass="org.springframework.web.struts.DelegatingRequestProcessor"/>
+  <message-resources parameter="ApplicationResources" />
+  <plug-in
+  	className="org.springframework.web.struts.ContextLoaderPlugIn">
+  	<set-property property="contextConfigLocation"
+  		value="/WEB-INF/applicationContext.xml" />
+  </plug-in>
+</struts-config>
+

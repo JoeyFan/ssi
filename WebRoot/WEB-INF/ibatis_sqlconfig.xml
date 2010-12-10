@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE sqlMapConfig  PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN" "http://www.ibatis.com/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+<settings cacheModelsEnabled="true" enhancementEnabled="true"
+	lazyLoadingEnabled="true" maxRequests="32" maxSessions="10"
+	maxTransactions="5" useStatementNamespaces="true" />
+
+
+<transactionManager type="JDBC">
+ <!-- 采用DBCP -->
+	<dataSource type="DBCP">
+	 	<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+	 	<property name="url" value="jdbc:mysql://127.0.0.1:3306/ssi?useUnicode=true&amp;characterEncoding=UTF-8" />
+	 	<property name="username" value="root" />
+	 	<property name="password" value="111111" />
+	 	<!-- OPTIONAL PROPERTIES BELOW -->
+	 	<property name="maxActive" value="50" />
+	 	<property name="maxIdle" value="20" />
+	 	<property name="maxWait" value="1000" />
+	</dataSource>
+</transactionManager>
+<sqlMap resource="xj/ericli/ssi/db/ibatis/model/dept_SqlMap.xml" />
+<sqlMap resource="xj/ericli/ssi/db/ibatis/model/staff_SqlMap.xml" />
+<sqlMap resource="xj/ericli/ssi/db/ibatis/model/t_user_SqlMap.xml" />
+</sqlMapConfig> 

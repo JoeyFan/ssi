@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<!-- ibatis sqlMapClient -->
+	<bean id="sqlMapClient"
+		class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocation" value="WEB-INF/ibatis_sqlconfig.xml" />
+	</bean>
+	
+	<!-- ****************************dao的实现，dao层为abator自动生成 同时注入sqlMapClient************************* -->
+	<bean id="userDAO"
+		class="xj.ericli.ssi.db.ibatis.dao.TUserDAOImpl">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	
+	<bean id="staffDAO"
+		class="xj.ericli.ssi.db.ibatis.dao.StaffDAOImpl">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	
+	
+	
+</beans>
